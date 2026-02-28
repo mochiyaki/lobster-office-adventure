@@ -2,6 +2,8 @@
 
 A 3D underwater action game built with Three.js and TypeScript where you play as a lobster defending sea creatures from enemy attacks.
 
+![screenshot](https://raw.githubusercontent.com/mochiyaki/lobster-office-adventure/master/demo.png)
+
 ## 🎮 Game Overview
 
 Control a lobster in an immersive 3D underwater environment, complete quests, defeat enemies (sharks and turtles), and protect friendly sea creatures. Features combat mechanics with bubble shooting and claw attacks, mission objectives, and procedurally generated audio.
