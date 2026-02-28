@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobster Office Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- HUD -->
+        <div id="hud">
+            <div id="skills-panel">
+                <h3>Lobster Skills</h3>
+                <div id="skills-list"></div>
+            </div>
+            <div id="checkpoint-progress">
+                <span>Checkpoints: <span id="checkpoint-count">0/4</span></span>
+            </div>
+        </div>
+
+        <!-- Health and Combat UI -->
+        <div id="combat-hud">
+            <div id="health-bar-container">
+                <div class="hud-label">HEALTH</div>
+                <div id="health-bar">
+                    <div id="health-bar-fill"></div>
+                </div>
+                <div id="health-text">100/100</div>
+            </div>
+            
+            <div id="abilities-bar">
+                <div class="ability-item">
+                    <div class="ability-icon">🫧</div>
+                    <div class="ability-cooldown" id="bubble-cooldown"></div>
+                    <div class="ability-key">SPACE</div>
+                </div>
+                <div class="ability-item">
+                    <div class="ability-icon">✂️</div>
+                    <div class="ability-cooldown" id="claw-cooldown"></div>
+                    <div class="ability-key">Q / CLICK</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission Panel -->
+        <div id="mission-panel">
+            <div class="mission-header">
+                <h2>MISSION: PROTECT THE SEA</h2>
+                <div id="mission-status" class="mission-status-active">ACTIVE</div>
+            </div>
+            <div class="mission-info">
+                <div class="info-item">
+                    <span class="info-label">Time:</span>
+                    <span id="mission-time">0:00</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Enemies Defeated:</span>
+                    <span id="enemy-count">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Creatures Alive:</span>
+                    <span id="creatures-alive">7</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Threat Level:</span>
+                    <span id="threat-level">LOW</span>
+                </div>
+            </div>
+            <div class="objectives-section">
+                <h3>Objectives:</h3>
+                <div id="objectives-list"></div>
+            </div>
+        </div>
+
+        <!-- Interaction Prompt -->
+        <div id="interaction-prompt" class="hidden">
+            Press <kbd>E</kbd> to interact
+        </div>
+
+        <!-- Dialogue System -->
+        <div id="dialogue-box" class="hidden">
+            <div id="dialogue-content">
+                <h2 id="npc-name"></h2>
+                <p id="dialogue-text"></p>
+                <div id="dialogue-options"></div>
+            </div>
+        </div>
+
+        <!-- Controls Info -->
+        <div id="controls-info">
+            <p><kbd>W/A/S/D</kbd> or <kbd>Arrow Keys</kbd> - Move</p>
+            <p><kbd>E</kbd> - Interact with NPCs</p>
+            <p><kbd>SPACE</kbd> - Bubble Shoot</p>
+            <p><kbd>Q</kbd> or <kbd>Left Click</kbd> - Claw Attack</p>
+            <p><kbd>Mouse</kbd> - Look around</p>
+            <p><kbd>M</kbd> - Toggle Audio</p>
+        </div>
+
+        <!-- Audio Toggle Button -->
+        <button id="audio-toggle" class="audio-button" title="Toggle Audio (M)">
+            🔊
+        </button>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="hidden">
+            <div id="game-over-content">
+                <h1 id="game-over-title">MISSION FAILED</h1>
+                <div id="game-over-message"></div>
+                <div id="game-over-stats">
+                    <div class="stat-row">
+                        <span>Enemies Defeated:</span>
+                        <span id="final-enemies">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Creatures Lost:</span>
+                        <span id="final-creatures-lost">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Survival Time:</span>
+                        <span id="final-time">0:00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Damage Dealt:</span>
+                        <span id="final-damage">0</span>
+                    </div>
+                </div>
+                <button id="play-again-btn">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- Mission Complete Screen -->
+        <div id="mission-complete-screen" class="hidden">
+            <div id="mission-complete-content">
+                <h1 id="mission-complete-title">MISSION COMPLETE!</h1>
+                <div id="mission-complete-message">You successfully protected the sea creatures!</div>
+                <div id="mission-complete-stats">
+                    <div class="stat-row">
+                        <span>Enemies Defeated:</span>
+                        <span id="complete-enemies">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Creatures Saved:</span>
+                        <span id="complete-creatures-saved">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Survival Time:</span>
+                        <span id="complete-time">0:00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Damage Dealt:</span>
+                        <span id="complete-damage">0</span>
+                    </div>
+                </div>
+                <button id="play-again-complete-btn">PLAY AGAIN</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="src/main.ts"></script>
+</body>
+</html>
